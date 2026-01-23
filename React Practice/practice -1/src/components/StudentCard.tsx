@@ -32,27 +32,31 @@ export const StudentCard = ({ student }: StudentCardProps) => {
 
         {/* Info */}
         <div className="text-center space-y-1">
-          <h2 className="text-xl text-white font-semibold tracking-wide">{name}</h2>
+          <h2 className="text-xl text-white font-semibold tracking-wide">
+            {name}
+          </h2>
           <p className="text-sm font-medium text-neutral-200">Age: {age}</p>
         </div>
 
         {/* Button */}
         <button
           className="mt-3 px-6 py-2.5 rounded-full
-  bg-emerald-600 hover:bg-emerald-500
-  text-white text-sm font-semibold
-  shadow-md shadow-emerald-600/30
-  hover:shadow-lg
-  active:scale-95
-  transition-all
-  focus:ring-2 focus:ring-emerald-400"
+                    bg-emerald-600 hover:bg-emerald-500
+                    text-white text-sm font-semibold
+                    shadow-md shadow-emerald-600/30
+                    hover:shadow-lg
+                    active:scale-95
+                    transition-all
+                    focus:ring-2 focus:ring-emerald-400"
           onClick={() => setBioToggle(!bioToggle)}
         >
           {bioToggle ? "Hide bio" : "Show bio"}
         </button>
 
         {/* Bio */}
-        <div className={`overflow-hidden transition-all duration-300 ${bioToggle ? "max-h-40 opacity-100 mt-3" : "max-h-0 opacity-0"}`}>
+        <div
+          className={`overflow-hidden transition-all duration-300 ${bioToggle ? "max-h-40 opacity-100 mt-3" : "max-h-0 opacity-0"}`}
+        >
           {bioToggle ? (
             <p className="text-md text-neutral-200 text-center leading-relaxed">
               {bio}
