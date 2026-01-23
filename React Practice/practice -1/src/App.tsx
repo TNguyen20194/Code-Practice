@@ -1,38 +1,44 @@
 import { StudentCard } from "./components/StudentCard"
+import type { Student } from "./types/student";
 
 
 function App() {
 
-const students = [
+const students: Student[] = [
   {
     avatarUrl: "https://i.pravatar.cc/150?img=13",
     name: "Daniel Lee",
-    age: 17,
-    bio: "Chess enthusiast and math club captain. Enjoys solving algorithm problems.",
+    age: 27,
+    hobby: ["Chess", "Math puzzles", "Coding"],
+    bio: "Daniel is a chess enthusiast and math club captain. He enjoys solving algorithm problems and building small JavaScript challenges. He’s currently learning React patterns and TypeScript.",
   },
   {
     avatarUrl: "https://i.pravatar.cc/150?img=14",
     name: "Sofia Martinez",
-    age: 16,
-    bio: "Aspiring UX designer who loves digital art and psychology.",
+    age: 19,
+    hobby: ["Digital art", "UX design", "Photography"],
+    bio: "Sofia loves digital art and is exploring UX design. She enjoys studying how people interact with interfaces and improving layouts. On weekends, she takes photos and edits them for fun.",
   },
   {
     avatarUrl: "https://i.pravatar.cc/150?img=15",
     name: "Ethan Brown",
-    age: 18,
-    bio: "Final-year student interested in full-stack development and startups.",
+    age: 22,
+    hobby: ["Full-stack dev", "Startups", "Blogging"],
+    bio: "Ethan is a final-year student interested in full-stack development and startups. He likes building small web apps and learning how products are made. He also writes short blog posts about what he learns.",
   },
   {
     avatarUrl: "https://i.pravatar.cc/150?img=16",
     name: "Linh Nguyen",
-    age: 17,
-    bio: "Science fair winner passionate about AI, data, and sustainability.",
+    age: 20,
+    hobby: ["AI", "Data", "Sustainability"],
+    bio: "Linh is passionate about AI and data-driven problem solving. She’s especially interested in sustainability projects and science fairs. She enjoys turning ideas into simple prototypes with React.",
   },
   {
-    avatarUrl: "https://i.pravatar.cc/150?img=17",
+    avatarUrl: "https://i.pravatar.cc/150?img=7",
     name: "Noah Wilson",
-    age: 16,
-    bio: "Plays basketball, builds small React apps, and experiments with Tailwind.",
+    age: 17,
+    hobby: ["Basketball", "React", "Tailwind"],
+    bio: "Noah plays basketball and builds small React apps after school. He likes experimenting with Tailwind to make clean UI quickly. He’s practicing component design and state management.",
   },
 ];
 

@@ -1,11 +1,5 @@
 import { useState } from "react";
-
-interface Student {
-  avatarUrl: string;
-  name: string;
-  age: number;
-  bio: string;
-}
+import type { Student } from "../types/student";
 
 interface StudentCardProps {
   student: Student;
@@ -16,7 +10,7 @@ interface StudentCardProps {
 export const StudentCard = ({ student }: StudentCardProps) => {
   const [bioToggle, setBioToggle] = useState(false);
 
-  const { avatarUrl, name, age, bio } = student;
+  const { avatarUrl, name, age, hobby, bio } = student;
 
   return (
     <>
@@ -36,6 +30,15 @@ export const StudentCard = ({ student }: StudentCardProps) => {
             {name}
           </h2>
           <p className="text-sm font-medium text-neutral-200">Age: {age}</p>
+        </div>
+
+        {/* Hobby */}
+        <div className="flex flex-wrap justify-center gap-2">
+            {hobby.map((item) => (
+                <span key={item} className="px-3 py-1 rounded-full text-sm font-medium bg-neutral-500 text-neutral-200">
+                    {item}
+                </span>
+            ))}
         </div>
 
         {/* Button */}
