@@ -14,7 +14,7 @@ export const StudentCard = ({ student }: StudentCardProps) => {
 
   return (
     <>
-      <article className="w-[350px] bg-neutral-900/95 text-white rounded-2xl shadow-xl p-6 flex flex-col items-center gap-4 transition-all duration-300 hover:shadow-2xl">
+      <article className="w-[400px] bg-neutral-900/95 text-white rounded-2xl shadow-xl p-6 flex flex-col items-center gap-4 transition-all duration-300 hover:shadow-2xl">
         {/* Avatar */}
         <div className="w-28 h-28 rounded-full overflow-hidden ring-4 ring-neutral-300">
           <img
@@ -51,7 +51,7 @@ export const StudentCard = ({ student }: StudentCardProps) => {
                     active:scale-95
                     transition-all
                     focus:ring-2 focus:ring-emerald-400"
-          onClick={() => setBioToggle(!bioToggle)}
+          onClick={() => setBioToggle((prev) => !prev)}
         >
           {bioToggle ? "Hide bio" : "Show bio"}
         </button>
