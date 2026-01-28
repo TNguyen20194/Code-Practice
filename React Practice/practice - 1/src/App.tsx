@@ -1,7 +1,28 @@
+import { useEffect, useState } from "react";
 import { StudentCard } from "./components/StudentCard"
 import students from "./data/student";
 
 function App() {
+  const [users, setUsers] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try{
+        const res = await fetch("http://localhost:3000/users");
+      const data = await res.json();
+
+      const user = data.data
+      console.log(user)
+
+      setUsers(users)
+      } catch (error) {
+        console.log("error", error)
+      }
+    }
+
+    fetchData()
+  }, [users])
+
 
   return (
     <>
