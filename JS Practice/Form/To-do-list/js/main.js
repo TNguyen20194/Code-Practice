@@ -53,3 +53,16 @@ todoList.addEventListener("submit", e => {
 
     taskList.appendChild(taskElement);
 });
+
+todoList.addEventListener("click", e => {
+    if(!event.target.matches('.task__delete-button')) return;
+
+    // Delete a task
+    const taskElement = e.target.parentElement;
+    taskList.removeChild(taskElement);
+
+    // Trigger empty state
+    if(taskList.children.length === 0) {
+        taskList.innerHTML = "";
+    }
+})
