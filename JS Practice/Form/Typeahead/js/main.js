@@ -257,6 +257,14 @@ const typeahead = document.querySelector(".typeahead");
 const input = document.querySelector("input");
 const ul = typeahead.querySelector("ul");
 
+const boldSearchTerms = (string, searchTerms) => {
+  const length = searchTerms.length;
+  const toBold = string.substring(0, length);
+  const restOfString = string.substring(length);
+  return `<strong>${toBold}</strong>${restOfString}`;
+};
+
+
 // Close the list of predictions if user clicks outside of the typeahead
 document.addEventListener("click", e => {
   if(!e.target.closest(".typeahead")) {
@@ -265,6 +273,9 @@ document.addEventListener("click", e => {
 })
 
 input.addEventListener("input", e => {
+
+  e.preventDefault();
+
   const input = e.target;
   const inputValue = input.value.trim().toLowerCase();
 
@@ -272,19 +283,17 @@ input.addEventListener("input", e => {
 
   const matches = countries.filter(country => {
     const name = country.name.toLowerCase();
-    return name.startsWith(inputValue)
+    return name.startsWith(inputValue);
   });
 
   const listItems = matches
   .map(country => {
-    return `<li>${country.name}</li>`
+    return `<li>${boldSearchTerms(country.name, inputValue)}</li>`
   })
   .join("");
 
   ul.innerHTML = listItems;
   ul.removeAttribute("hidden");
-
-console.log(listItems)
 });
 
 ul.addEventListener("click", e => {
@@ -297,5 +306,5 @@ ul.addEventListener("click", e => {
 
   ul.setAttribute("hidden", true);
 
-})
+});
 
