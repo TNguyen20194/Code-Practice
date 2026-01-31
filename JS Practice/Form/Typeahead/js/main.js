@@ -251,6 +251,51 @@ const countries = [
   { name: 'Yemen' },
   { name: 'Zambia' },
   { name: 'Zimbabwe' }
-]
+];
 
-// Start writing JavaScript here!
+const typeahead = document.querySelector(".typeahead");
+const input = document.querySelector("input");
+const ul = typeahead.querySelector("ul");
+
+// Close the list of predictions if user clicks outside of the typeahead
+document.addEventListener("click", e => {
+  if(!e.target.closest(".typeahead")) {
+    ul.setAttribute("hidden", true)
+  }
+})
+
+input.addEventListener("input", e => {
+  const input = e.target;
+  const inputValue = input.value.trim().toLowerCase();
+
+  if(!inputValue) return ul.setAttribute("hidden", true);
+
+  const matches = countries.filter(country => {
+    const name = country.name.toLowerCase();
+    return name.startsWith(inputValue)
+  });
+
+  const listItems = matches
+  .map(country => {
+    return `<li>${country.name}</li>`
+  })
+  .join("");
+
+  ul.innerHTML = listItems;
+  ul.removeAttribute("hidden");
+
+console.log(listItems)
+});
+
+ul.addEventListener("click", e => {
+  if(!e.target.matches("li")) return;
+
+  const li = e.target;
+  const countryName = li.textContent;
+
+  input.value = countryName;
+
+  ul.setAttribute("hidden", true);
+
+})
+
