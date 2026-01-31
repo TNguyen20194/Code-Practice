@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Get dat format: 31 January 2026
+        const today = new Date();
+
+        const date = today.getDate();
+        const monthIndex = today.getMonth();
+        const year = today.getFullYear();
+
+const monthsInAYear = [
+  { shortname: 'Jan', longname: 'January' },
+  { shortname: 'Feb', longname: 'February' },
+  { shortname: 'Mar', longname: 'March' },
+  { shortname: 'Apr', longname: 'April' },
+  { shortname: 'May', longname: 'May' },
+  { shortname: 'Jun', longname: 'June' },
+  { shortname: 'Jul', longname: 'July' },
+  { shortname: 'Aug', longname: 'August' },
+  { shortname: 'Sep', longname: 'September' },
+  { shortname: 'Oct', longname: 'October' },
+  { shortname: 'Nov', longname: 'November' },
+  { shortname: 'Dec', longname: 'December' },
+];
+
+const daysInAWeek = [
+  { shortname: 'Sun', longname: 'Sunday' },
+  { shortname: 'Mon', longname: 'Monday' },
+  { shortname: 'Tue', longname: 'Tuesday' },
+  { shortname: 'Wed', longname: 'Wednesday' },
+  { shortname: 'Thu', longname: 'Thursday' },
+  { shortname: 'Fri', longname: 'Friday' },
+  { shortname: 'Sat', longname: 'Saturday' },
+];
+
+const dateSuffix = {
+  1: 'st',
+  2: 'nd',
+  3: 'rd',
+  4: 'th',
+  5: 'th',
+  6: 'th',
+  7: 'th',
+  8: 'th',
+  9: 'th',
+  10: 'th',
+  11: 'th',
+  12: 'th',
+  13: 'th',
+  14: 'th',
+  15: 'th',
+  16: 'th',
+  17: 'th',
+  18: 'th',
+  19: 'th',
+  20: 'th',
+  21: 'st',
+  22: 'nd',
+  23: 'rd',
+  24: 'th',
+  25: 'th',
+  26: 'th',
+  27: 'th',
+  28: 'th',
+  29: 'th',
+  30: 'th',
+  31: `st`,
+}
+
+        const monthName = monthsInAYear[monthIndex];
+
+        // const dateString = `${date} ${month.shortname} ${year}`
+
+        // // Get dat format: 31st January, 2026
+        const daySuffix = dateSuffix[date];
+        const month = monthsInAYear[today.getMonth()].longname;
+        const dateString2 = `${date}${daySuffix} ${month}, ${year}`;
+
+        console.log(month, dateString2)
+
+    </script>
+</body>
+</html>
